@@ -6,7 +6,7 @@ export default function LoginForm({ isLoginForm = false }: { isLoginForm?: boole
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [passwordConfirm, setPasswordConfirm] = useState<string>('');
-    const { handleLogin, handleSignup, loading, error } = useAuth();
+    const { handleLogin, handleSignup} = useAuth();
     const navigate = useNavigate();
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
