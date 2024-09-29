@@ -16,7 +16,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const handleLogin = async (email: string, password: string) => {
         try {
             const data = await login(email,password);
-            console.log(data);
             localStorage.setItem('token', data.token);
             setToken(data.token);
             setUser({ email });
@@ -28,7 +27,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     const handleSignup = async (email: string, password: string) => {
-        console.log("useAuth!!")
+
         setLoading(true);
         setError(null);
         try {
@@ -67,7 +66,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 };
 
-// useAuth 훅
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {

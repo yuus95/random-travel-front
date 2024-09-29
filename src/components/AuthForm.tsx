@@ -6,8 +6,8 @@ export default function LoginForm({ isLoginForm = false }: { isLoginForm?: boole
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [passwordConfirm, setPasswordConfirm] = useState<string>('');
-    const { handleLogin, handleSignup} = useAuth();
     const navigate = useNavigate();
+    const {handleLogin, handleSignup} = useAuth();
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -17,7 +17,10 @@ export default function LoginForm({ isLoginForm = false }: { isLoginForm?: boole
             if (isLoginForm) {
                 console.log("onSumbit::login")
                 await handleLogin(email, password);
-                navigate('/home'); // 로그인 후 홈으로 이동
+
+                navigate('/home' ,{
+                    state: {isLoginForm: true}
+                } ); // 로그인 후 홈으로 이동
             } else {
                 if (password !== passwordConfirm) {
                     alert('비밀번호가 일치하지 않습니다.');

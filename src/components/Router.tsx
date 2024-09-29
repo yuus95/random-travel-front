@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import HomePage from "../pages/Home";
 import LoginPage from "../pages/Login";
 import SignupPage from "../pages/Signup";
 
@@ -13,6 +14,7 @@ export default function Router({ isAuthenticated }: RouterProps) {
           <>
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/*" element={<LoginPage />} />
 
           </>
