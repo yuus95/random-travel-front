@@ -9,8 +9,10 @@ export default function HomePage() {
         <> 
             < Header/>
             Hello Worlds!!
-            {token ? "로그인 유저" : 
-            <LoginForm isLoginForm = {true}/>
+            {token ?
+            "로그인 유저"
+             : 
+            <LoginForm isLoginForm/>
             }
         </>
     )

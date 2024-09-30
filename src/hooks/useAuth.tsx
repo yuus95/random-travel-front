@@ -31,9 +31,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setLoading(true);
         setError(null);
         try {
-            console.log("handleSignup", email, password)
             const data = await signup(email, password);
-            console.log("signup Data!! ", data)
             return data;
         } catch (error) {
             setError('Signup failed');
