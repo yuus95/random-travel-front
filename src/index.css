@@ -72,3 +72,37 @@ code {
   background-color: #2563eb;
   color: white;
 }
+
+/* src/components/Pagination.css */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination-btn {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #007bff;
+  background-color: #fff;
+  color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  border-color: #ccc;
+}
+
+.pagination-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.pagination-btn:hover:not(.active):not(:disabled) {
+  background-color: #007bff;
+  color: #fff;
+}
