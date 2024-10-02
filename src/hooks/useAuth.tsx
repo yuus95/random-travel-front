@@ -23,6 +23,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         catch(error: any){
             console.error('로그인 실패:', error);
             throw error;
+        } finally {
+          setLoading(false);
         }
     }
 

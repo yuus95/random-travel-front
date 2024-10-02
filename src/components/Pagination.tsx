@@ -51,6 +51,8 @@ export default function Pagination({
             </button>
 
             {pageNumbers.map((page) => (
+                <>
+                {console.log("page", page)}
                 <button
                     className={`pagination-btn ${currentPage === page
                         ? 'active'
@@ -60,6 +62,7 @@ export default function Pagination({
                 >
                     {page}
                 </button>
+                </>
             ))}
 
             <button

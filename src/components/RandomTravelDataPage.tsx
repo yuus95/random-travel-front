@@ -3,7 +3,7 @@ import { GetCount } from "../api/randomTravelApi";
 import { useAuth } from "../hooks/useAuth";
 import Pagination from "./Pagination";
 
-export default function RandomTravelListPagination(
+export default function RandomTravelDataPage (
     { currentPage, limit, onPageChange }: { currentPage: number; limit: number, onPageChange: (page: number) => void }
 ) {
     const { token } = useAuth();
@@ -32,10 +32,16 @@ export default function RandomTravelListPagination(
 
 
     return (
-        < Pagination
-            totalItems={totalItems}
-            itemsPerPage={limit}
-            currentPage={currentPage}
-            onPageChange={onPageChange} />
+        <>
+            {
+                loading ? (<div> 로딩중 ... </div >)
+                    : (< Pagination
+                        totalItems={totalItems}
+                        itemsPerPage={limit}
+                        currentPage={currentPage}
+                        onPageChange={onPageChange} />)
+            }
+
+        </>
     )
 }
