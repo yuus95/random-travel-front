@@ -15,6 +15,11 @@ export default function Pagination({
     onPageChange,
     maxPageNumbersToShow = 5, // 기본값 설정
 }: PaginationProps) {
+    console.log("currentPage",currentPage)
+    console.log("totalItems",totalItems)
+    console.log("maxPageNumbersToShow",maxPageNumbersToShow)
+
+
     const totalPage = Math.ceil(totalItems / itemsPerPage);
 
     const getPageNumbers = () => {

@@ -7,20 +7,22 @@ import { RandomTravelType } from "../types/RandomTravlelType";
 
 
 export default function RandomTravelData(
-    { currentPage, limit }: { currentPage: number; limit: number }
+    { currentPage, limit, hasData }: { currentPage: number; limit: number, hasData: Boolean }
 ) {
     const [travels, setTravels] = useState<RandomTravelType[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const { token } = useAuth();
     const navigate = useNavigate();
-
+    
+    console.log("hasData", hasData);
+    
     if (token == null) {
         navigate("/login");
     }
 
     const loadData = async () => {
         try {
-            if (token != null) {
+            if (token != null && hasData) {
                 const data = await GetList(token, currentPage, limit);
                 setTravels(data);
             }
@@ -34,7 +36,7 @@ export default function RandomTravelData(
 
     useEffect(() => {
         loadData();
-    }, [token, currentPage, limit]);
+    }, [token, currentPage, limit,hasData]);
 
     return (
         <>
