@@ -15,11 +15,6 @@ export default function Pagination({
     onPageChange,
     maxPageNumbersToShow = 5, // 기본값 설정
 }: PaginationProps) {
-    console.log("currentPage",currentPage)
-    console.log("totalItems",totalItems)
-    console.log("maxPageNumbersToShow",maxPageNumbersToShow)
-
-
     const totalPage = Math.ceil(totalItems / itemsPerPage);
 
     const getPageNumbers = () => {
@@ -57,16 +52,16 @@ export default function Pagination({
 
             {pageNumbers.map((page) => (
                 <>
-                {console.log("page", page)}
-                <button
-                    className={`pagination-btn ${currentPage === page
-                        ? 'active'
-                        : ''}`}
-                    key={page}
-                    onClick={() => onPageChange(page)}
-                >
-                    {page}
-                </button>
+                    {console.log("page", page)}
+                    <button
+                        className={`pagination-btn ${currentPage === page
+                            ? 'active'
+                            : ''}`}
+                        key={page}
+                        onClick={() => onPageChange(page)}
+                    >
+                        {page}
+                    </button>
                 </>
             ))}
 
